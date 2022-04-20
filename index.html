@@ -2,32 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <title>Frontend Mentor | NFT preview card component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- I once again incorporated the CSS into the HTML because of the simplicity of the project. I know it's bad practice, I won't do it in more complex projects, promise :) -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    * {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      color: #a9bdd9;
+      font-weight: 300;
+    }
+    body {
+      background: #0d192b;
+	    margin: 0;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+
+    .main {
+      width: 300px;
+      padding: 25px;
+      background: #14253d;
+      border-radius: 20px;
+      box-shadow: 0px 0px 78px rgba(0, 0, 0, 25%);
+    }
+    a {
+      text-decoration: none !important;
+      color: white;
+      transition: color .3s;
+      -webkit-transition: color .3s;
+    }
+    a:hover {
+      color: #00fff7
+    }
+    .card-image-div {
+      position: relative;
+    }
+    .active-state {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      background: rgba(0, 255, 247, 50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      -webkit-transition: .3s ease;
+      transition: .3s ease;
+    }
+    .active-state:hover{
+      opacity: 1;
+    }
+    .icon-view {
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .card-image {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .nft-table {
+      width: 100%;
+      border-bottom: 1px solid #2f415b;
+    }
+    td {
+      font-size: 16px;
+      vertical-align: middle;
+      padding-bottom: 1.5em;
+    }
+    .column-left {
+      font-weight: 400;
+      color: #00fff7;
+    }
+    .column-right {
+      text-align: right;
+      font-weight: 400;
+    }
+    .card-icons {
+      position: relative;
+      top: 3px;
+    }
+    .creator {
+      display: flex;
+      align-items:center;
+      font-size: 16px;
+    }
+    .creator a {
+      font-size: 16px;
+    }
+    .card-title {
+      padding-top: .5em;
+    }
+    .card-title a {
+      font-size: 21px;
+      font-weight: 600;
+    }
+    .avatar {
+      width: 30px;
+      filter:
+        drop-shadow(1px 1px 0 white)
+        drop-shadow(-1px 1px 0 white)
+        drop-shadow(1px -1px 0 white)
+        drop-shadow(-1px -1px 0 white);
+      -webkit-filter:
+        drop-shadow(1px 1px 0 white)
+        drop-shadow(-1px 1px 0 white)
+        drop-shadow(1px -1px 0 white)
+        drop-shadow(-1px -1px 0 white);
+      padding-right: 1em;
+    }
   </style>
 </head>
 <body>
+  <div class="main" role="main">
+    <div class="card-image-div">
+      <div class="active-state">
+        <img class="icon-view" src="./images/icon-view.svg">
+      </div>
+      <a href="">
+        <img class="card-image" src="./images/image-equilibrium.jpg" alt="NFT Image">
+      </a>
+    </div>
+    <h1 class="card-title">
+      <a class="title-link" href="">
+        Equilibrium #3429
+      </a>
+    </h1>
+    <p class="card-body">
+      Our Equilibrium collection promotes balance and calm.
+    </p>
 
-  Equilibrium #3429
-
-  Our Equilibrium collection promotes balance and calm.
-
-  0.041 ETH
-  3 days left
-  
-  Creation of Jules Wyvern
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    <table class="nft-table">
+      <tbody>
+        <tr>
+          <td class="column-left" valign="top">
+            <img class="card-icons" src="./images/icon-ethereum.svg" alt="ethereum icon">
+            &nbsp&nbsp0.041 ETH
+          </td>
+          <td class="column-right" valign="top">
+            <img class="card-icons" src="./images/icon-clock.svg" alt="clock icon">
+            &nbsp&nbsp3 days left
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="creator">
+      <img class="avatar" src="./images/image-avatar.png" alt="profile picture of creator">
+      Creation of&nbsp
+      <a href="">
+        Jules Wyvern
+      </a>
+    </p>
   </div>
 </body>
 </html>
