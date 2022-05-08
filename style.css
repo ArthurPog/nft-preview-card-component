@@ -48,6 +48,7 @@ a:hover {
 }
 .active-state:hover{
   opacity: 1;
+  cursor: pointer;
 }
 .icon-view {
   width: 50px;
